@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6795338853185799299}
   - component: {fileID: 829806938653970155}
   - component: {fileID: 1424877510889326764}
+  - component: {fileID: -2882473876411113248}
   - component: {fileID: 7880959839960604966}
   - component: {fileID: -8394993687974787262}
   - component: {fileID: -961096405069110203}
@@ -100,15 +101,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 3095432883512400996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f13f5245df2bb459cecb953c6d0045, type: 3}
+  m_Script: {fileID: 11500000, guid: 79a352bcb0b7dbe4aae31ab1bfbb2f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  defense: 10
-  strenght: 30
   movementSpeed: 2
-  detectionRadius: 8
-  movementSpeedAggro: 10
+  detectionRadius: 5
+--- !u!114 &-2882473876411113248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095432883512400996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85b77f86befeb9499057a544a78a652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 75dab307be488c54e8a672243b1fd7b9, type: 2}
+  maxHP: 0
+  currentHP: 0
+  defense: 0
+  strenght: 0
+  level: 0
   strenghtIncreasePercent: 0.05
   turnsMagicDisabled: 2
 --- !u!95 &7880959839960604966

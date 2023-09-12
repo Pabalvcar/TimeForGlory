@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slime : AbstractEnemy
+public class BasicMovement : AbstractEnemyMovement
 {
-
-    public float reflectedDamagePercent;
-    public int defenseReduction;
 
     void Start()
     {

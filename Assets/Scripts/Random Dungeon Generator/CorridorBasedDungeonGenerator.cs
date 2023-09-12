@@ -29,6 +29,8 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [Range(0.01f, 1)]
     private float megaRoomChance = 0.01f;
 
+    private HashSet<Vector2Int> invalidSpawnPositions;
+
     public static CorridorBasedDungeonGenerator Instance { get; private set; }
 
     public HashSet<Vector2Int> tiles { get; private set; }
@@ -41,6 +43,9 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     protected override void RunProceduralGeneration()
     {
+
+        invalidSpawnPositions = new HashSet<Vector2Int>();
+
         float isMegaRoom = Random.value;
         if (isMegaRoom <= megaRoomChance)
         {
@@ -60,6 +65,7 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         SpawnPlayer(floorPositions);
         SpawnStairs(floorPositions);
+        SpawnChests(floorPositions);
         SpawnEnemies(floorPositions, roomAmountFactor);
 
         tiles = floorPositions;
@@ -80,6 +86,7 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         SpawnPlayer(roomPositions);
         SpawnStairs(roomPositions);
+        SpawnChests(roomPositions);
         SpawnEnemies(roomPositions, validRoomPositions.Count);
 
         floorPositions.UnionWith(roomPositions);
@@ -92,29 +99,31 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private void SpawnPlayer(HashSet<Vector2Int> roomPositions)
     {
-        Vector2Int spawnPosition = GetSpawnPosition(roomPositions, null);
+        Vector2Int spawnPosition = GetSpawnPosition(roomPositions);
         player.transform.position = new Vector3Int(spawnPosition.x, spawnPosition.y, 0);      
     }
 
     private void SpawnStairs(HashSet<Vector2Int> roomPositions)
     {
-
-        HashSet<Vector2Int> invalidPositions = new HashSet<Vector2Int>() {
-                new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y)
-        };
-
-        Vector2Int spawnPosition = GetSpawnPosition(roomPositions, invalidPositions);
+        Vector2Int spawnPosition = GetSpawnPosition(roomPositions);
         stairs.transform.position = new Vector3Int(spawnPosition.x, spawnPosition.y, 0);    
     }
 
-    private void SpawnEnemies(HashSet<Vector2Int> roomPositions, int roomAmount)
+    private void SpawnChests(HashSet<Vector2Int> roomPositions)
     {
-        HashSet<Vector2Int> invalidPositions = new HashSet<Vector2Int>() {
-                new Vector2Int((int)player.transform.position.x, (int)player.transform.position.y),
-                new Vector2Int((int)stairs.transform.position.x, (int)stairs.transform.position.y)
-        };
-        
+
+        for (int i = 0; i < DifficultyController.Instance.chestNumber; i++)
+        {
+            Vector2Int spawnPosition = GetSpawnPosition(roomPositions);
+            Instantiate(chestPrefab, new Vector3Int(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity);
+        }
+
+    }
+
+    private void SpawnEnemies(HashSet<Vector2Int> roomPositions, int roomAmount)
+    {   
         int enemyAmount = DifficultyController.Instance.enemyAmountPerRoom * roomAmount;
+        int extraEnemies = DifficultyController.Instance.extraEnemies;
 
         List<GameObject> enemyPrefabs = new List<GameObject>()
         {
@@ -136,7 +145,7 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         GameObject enemy = slimePrefab; //slime es el enemigo default, esto solo debería saltar para el valor aleatorio 1
 
-        for (int i = 0; i < enemyAmount; i++)
+        for (int i = 0; i < enemyAmount + extraEnemies; i++)
         {
             float randomValue = Random.value;
             float cumulativeProbability = 0;
@@ -151,21 +160,19 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 }
             }
 
-            Vector2Int chosenPosition = SpawnEnemy(roomPositions, invalidPositions, enemy);
-            //un enemigo ha spawneado en chosenPosition por lo que esta casilla queda inválida para futuros spawns
-            invalidPositions.Add(chosenPosition);
+            Vector2Int chosenPosition = SpawnEnemy(roomPositions, enemy);
         }
 
     }
 
-    private Vector2Int SpawnEnemy(HashSet<Vector2Int> roomPositions, HashSet<Vector2Int> invalidPositions, GameObject enemy)
+    private Vector2Int SpawnEnemy(HashSet<Vector2Int> roomPositions, GameObject enemy)
     {
         bool isFarFromPlayer = false;
         Vector2Int spawnPosition = new Vector2Int();
 
         while (!isFarFromPlayer)
         {
-            spawnPosition = GetSpawnPosition(roomPositions, invalidPositions);
+            spawnPosition = GetSpawnPosition(roomPositions);
 
             float distanceToPlayer = Vector3.Distance(player.transform.position, (Vector3Int)spawnPosition);
             if (distanceToPlayer > 8f)
@@ -178,7 +185,7 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
         return spawnPosition;
     }
 
-    private Vector2Int GetSpawnPosition(HashSet<Vector2Int> roomPositions, HashSet<Vector2Int> invalidPositions)
+    private Vector2Int GetSpawnPosition(HashSet<Vector2Int> roomPositions)
     {
         Vector2Int spawnPosition = new Vector2Int();
         List<Vector2Int> listPositions = new List<Vector2Int>(roomPositions);
@@ -189,19 +196,20 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
             int randomIndex = Random.Range(0, listPositions.Count);
             Vector2Int pos = listPositions[randomIndex];
 
-            isValidSpawn = CheckIfSpawnPossible(pos, roomPositions, invalidPositions);
+            isValidSpawn = CheckIfSpawnPossible(pos, roomPositions);
             if (isValidSpawn)
                 spawnPosition = pos;
 
             listPositions.RemoveAt(randomIndex);
         }
 
+        invalidSpawnPositions.Add(spawnPosition); //algo se va a generar en esta casilla por lo que la marcamos como inválida para futuros spawns
         return spawnPosition;
     }
 
-    private bool CheckIfSpawnPossible(Vector2Int pos, HashSet<Vector2Int> roomPositions, HashSet<Vector2Int> invalidPositions)
+    private bool CheckIfSpawnPossible(Vector2Int pos, HashSet<Vector2Int> roomPositions)
     {
-        if ((invalidPositions != null) && invalidPositions.Contains(pos))
+        if ((invalidSpawnPositions != null) && invalidSpawnPositions.Contains(pos))
             return false;
 
         bool spawnPossible = true;

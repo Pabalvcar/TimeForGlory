@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - LevelTransitionScreen
   - Pathfinding
+  - ChestUI
+  - Chest
   layers:
   - Default
   - TransparentFX

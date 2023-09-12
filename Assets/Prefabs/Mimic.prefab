@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8666139049083705505}
   - component: {fileID: 5802328088964950806}
   - component: {fileID: 9215745916564763864}
+  - component: {fileID: 8427428969915088209}
   - component: {fileID: 8491110292266643601}
   - component: {fileID: 1807142220058118384}
   - component: {fileID: 4377159640053903918}
@@ -100,13 +101,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a2a45e211a2f449978d137a2538847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 400
-  defense: 20
-  strenght: 20
   movementSpeed: 0
   detectionRadius: 0
+  chestUI: {fileID: 8938119213816414143, guid: cf7862e0750a82947a49848d07a92931, type: 3}
+  chestUIInstance: {fileID: 0}
+--- !u!114 &8427428969915088209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707734777700298295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ac5ab2e51fe3e4e92573ea9a006ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 5b05108d8a690f5448840c5f041efcfc, type: 2}
+  maxHP: 0
+  currentHP: 0
+  defense: 0
+  strenght: 0
+  level: 0
   goldStolen: 5
-  extraDamageForEachRune: 0.02
+  extraDamageForEachRune: 0.2
 --- !u!95 &8491110292266643601
 Animator:
   serializedVersion: 5
@@ -147,7 +165,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &4377159640053903918
 BoxCollider2D:
   m_ObjectHideFlags: 0

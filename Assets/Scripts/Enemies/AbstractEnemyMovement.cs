@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
-public abstract class AbstractEnemy : MonoBehaviour
+public abstract class AbstractEnemyMovement : MonoBehaviour
 {
 
-    public int health;
-    public int defense;
-    public int strenght;
     public float movementSpeed;
     public float detectionRadius;
 
@@ -21,6 +19,11 @@ public abstract class AbstractEnemy : MonoBehaviour
     private bool currentlyMoving = false;
 
     private void Awake()
+    {
+        Initialize();
+    }
+
+    protected void Initialize()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         animator = gameObject.GetComponent<Animator>();
@@ -120,17 +123,11 @@ public abstract class AbstractEnemy : MonoBehaviour
         while (transform.position.x != newPosition.x || transform.position.y != newPosition.y)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPosition, movementSpeed * Time.deltaTime);
+            animator.SetFloat("isMoving", 1);
             yield return new WaitForSeconds(0.01f);
         }
 
-        if (rigidBody.velocity.magnitude > 0f)
-        {
-            animator.SetFloat("isMoving", 1);
-        }
-        else
-        {
-            animator.SetFloat("isMoving", 0);
-        }
+        animator.SetFloat("isMoving", 0);
 
         yield return new WaitForSeconds(5f);
 
@@ -148,11 +145,9 @@ public abstract class AbstractEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Player")
         {
-            if (collision.gameObject.tag == "Player")
-            {
-                Destroy(gameObject);
-            }
+            StartCoroutine(BattleController.Instance.StartBattle(gameObject));
         }
     }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd02100dd7bb994f80e3bfc6b8ad1b0, type: 3}
+  m_Name: Mimic
+  m_EditorClassIdentifier: 
+  maxHP: 200
+  currentHP: 200
+  defense: 15
+  strenght: 20
+  goldDrop: 70
+  battleSprite: {fileID: -1727551324, guid: 6c39512370909274b8d4ad84475515f9, type: 3}

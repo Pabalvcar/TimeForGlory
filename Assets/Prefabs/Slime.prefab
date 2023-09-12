@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6183573938914113084}
   - component: {fileID: 9188162933632037160}
   - component: {fileID: 231814103568621758}
+  - component: {fileID: 4034778023004291560}
   - component: {fileID: 1457660209794206771}
   - component: {fileID: 3015879806094140456}
   - component: {fileID: 4018647001742886466}
@@ -103,13 +104,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a352bcb0b7dbe4aae31ab1bfbb2f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  defense: 20
-  strenght: 10
   movementSpeed: 5
   detectionRadius: 5
-  reflectedDamagePercent: 0.05
-  defenseReduction: 5
+--- !u!114 &4034778023004291560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2752785605283767146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264506699d0174e4cad1c36c0ac2ecc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 288d485e81445aa4bb24851fe29ec3cc, type: 2}
+  maxHP: 0
+  currentHP: 200
+  defense: 0
+  strenght: 0
+  level: 0
+  reflectedDamagePercent: 0.1
+  defenseReduction: 2
 --- !u!95 &1457660209794206771
 Animator:
   serializedVersion: 5
@@ -174,7 +190,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 6
+  maxSpeed: 5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

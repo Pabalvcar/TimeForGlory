@@ -22,7 +22,6 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
     [SerializeField]
     protected SimpleRandomWalkSO megaRoomParameters;
 
-
     protected override void RunProceduralGeneration()
     {
         tilemapGenerator.ClearTilemap();

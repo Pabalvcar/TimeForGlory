@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5630856536968087551}
   - component: {fileID: 8956813045556098366}
   - component: {fileID: 1416845823751494896}
+  - component: {fileID: -7627376893993557697}
   - component: {fileID: 1959985181730403789}
   - component: {fileID: 6173853337314799142}
   - component: {fileID: 1731947870687180610}
@@ -100,17 +101,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 3806513050163452894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b9d4686a432a945b908c0543033322, type: 3}
+  m_Script: {fileID: 11500000, guid: 79a352bcb0b7dbe4aae31ab1bfbb2f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  defense: 10
-  strenght: 20
   movementSpeed: 4
   detectionRadius: 6
-  removedMP: 10
-  bonusDamage: 0.5
-  bonusDamageHPThreshold: 0.5
+--- !u!114 &-7627376893993557697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806513050163452894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0669136e2af354f930c9f008638d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: a32064dceca61ac41b5c71ba3e2c3135, type: 2}
+  maxHP: 0
+  currentHP: 0
+  defense: 0
+  strenght: 0
+  level: 0
+  removedMP: 2
+  bonusDamage: 30
+  bonusDamageHPThreshold: 0.3
 --- !u!95 &1959985181730403789
 Animator:
   serializedVersion: 5

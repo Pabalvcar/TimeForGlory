@@ -12,7 +12,25 @@ public class DifficultyController : MonoBehaviour
 
     public int currentlevel = 0;
 
+    public int enemyLevel = 0;
+
     public int enemyAmountPerRoom = 1;
+
+    public int extraEnemies = 0;
+
+    public int chestNumber = 3;
+
+    public int chestGoldCost = 30;
+
+    private float startTime;
+
+    private float currentTime;
+
+    private int minutes;
+
+    private int seconds;
+
+    private int currentMinute = 0;
 
     public float slimeSpawnWeight = 0.4f;
 
@@ -23,6 +41,8 @@ public class DifficultyController : MonoBehaviour
     public float demonSpawnWeight = 0.05f;
 
     public float mimicSpawnWeight = 0.01f;
+
+    public float specialAttackChance = 0.20f;
 
     // #######################################################
 
@@ -35,6 +55,9 @@ public class DifficultyController : MonoBehaviour
     [SerializeField]
     private GameObject levelTransitionScreen;
 
+    [SerializeField]
+    private TMP_Text timeText;
+
     private void Awake()
     {
         Instance = this;
@@ -46,18 +69,36 @@ public class DifficultyController : MonoBehaviour
         levelTransitionScreen.SetActive(true);
         levelTransitionText.alpha = 1f;
         StartCoroutine(Instance.DoTransition());
+        startTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentTime = Time.time - startTime;
+        minutes = Mathf.FloorToInt(currentTime / 60);
+        seconds = Mathf.FloorToInt(currentTime % 60);
+        timeText.SetText(string.Format("{0:00}:{1:00}", minutes, seconds));
+
+        if (minutes > currentMinute)
+        {
+            currentMinute += 1;
+            enemyLevel += 1;
+        }
     }
 
     public IEnumerator DoTransition()
     {
+        currentlevel += 1;
+        enemyLevel += 1;
+        if ((currentlevel % 5) == 0)
+        {
+            extraEnemies += 2;
+        }
+
         cornerLevelText.SetText("Planta " + currentlevel);
         levelTransitionText.SetText("Planta " + currentlevel);
+
         levelTransitionScreen.SetActive(true);
         CanvasGroup canvasGroup = levelTransitionScreen.GetComponent<CanvasGroup>();
         float fadeDuration = 0.5f;
@@ -74,6 +115,12 @@ public class DifficultyController : MonoBehaviour
         }
 
         CorridorBasedDungeonGenerator.Instance.GenerateDungeon();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerBattle playerStats = player.GetComponent<PlayerBattle>();
+
+        playerStats.RecoverHP(Mathf.RoundToInt(playerStats.maxHP * 0.5f));
+        playerStats.RecoverMP(Mathf.RoundToInt(playerStats.maxMP * 0.5f));
 
         elapsedTime = 0f;
 
@@ -105,9 +152,8 @@ public class DifficultyController : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSecondsRealtime(0.5f);
         levelTransitionScreen.SetActive(false);
 
-
     }
+
 }

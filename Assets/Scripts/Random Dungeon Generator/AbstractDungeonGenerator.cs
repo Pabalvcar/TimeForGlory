@@ -34,6 +34,9 @@ public abstract class AbstractDungeonGenerator : MonoBehaviour
     [SerializeField]
     protected GameObject mimicPrefab = null;
 
+    [SerializeField]
+    protected GameObject chestPrefab = null;
+
 
     public void GenerateDungeon()
     {
@@ -42,7 +45,21 @@ public abstract class AbstractDungeonGenerator : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
+            if (enemy.GetComponent<MimicMovement>())
+            {
+                MimicMovement mimicScript = enemy.GetComponent<MimicMovement>();
+                Destroy(mimicScript.chestUIInstance);
+            }
             Destroy(enemy);
+        }
+
+        GameObject[] chests = GameObject.FindGameObjectsWithTag("Chest");
+
+        foreach (var chest in chests)
+        {
+            Chest chestScript = chest.GetComponent<Chest>();
+            Destroy(chestScript.chestUIInstance);
+            Destroy(chest);
         }
 
         if (player==null)

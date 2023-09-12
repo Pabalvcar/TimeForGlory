@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6818076789875563574}
   - component: {fileID: 1475421421154832931}
   - component: {fileID: 1026672545304521504}
+  - component: {fileID: 4853328095443808587}
   - component: {fileID: 7632731361833980128}
   - component: {fileID: -9031658348901993791}
   - component: {fileID: -2623275295146199049}
@@ -100,14 +101,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 453932358578540755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d89edce2b3dbd479273b0208535b4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 79a352bcb0b7dbe4aae31ab1bfbb2f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  defense: 5
-  strenght: 20
   movementSpeed: 4
   detectionRadius: 6
+--- !u!114 &4853328095443808587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453932358578540755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46baa8efd84267c4aa093fcfefcfc0fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 71715938d2260134aae3135cfa2a79d9, type: 2}
+  maxHP: 0
+  currentHP: 0
+  defense: 0
+  strenght: 0
+  level: 0
   basicDamageReductionPercent: 0.2
   lifestealPercent: 0.2
 --- !u!95 &7632731361833980128
