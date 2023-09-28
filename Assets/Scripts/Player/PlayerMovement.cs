@@ -13,11 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private CinemachineVirtualCamera virtualCamera;
-    private ProceduralGridMover gridMover;
 
-    private float horizontalInput = 0f;
-    private float verticalInput = 0f;
-    private float lastHorizontalInput = 0f;
+    private float horizontalInput;
+    private float verticalInput;
+    private float lastHorizontalInput;
 
     void Start()
     {
@@ -25,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-        gridMover = FindObjectOfType<ProceduralGridMover>();
+        ProceduralGridMover gridMover = FindObjectOfType<ProceduralGridMover>();
 
         if (virtualCamera != null)
         {
@@ -54,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         movementVector = movementSpeed * Time.fixedDeltaTime * movementVector.normalized;
         rigidBody.MovePosition(transform.position + movementVector);
 
-        if (horizontalInput != 0)
+        if (horizontalInput > 0 || horizontalInput < 0)
         {
             lastHorizontalInput = horizontalInput;
         }

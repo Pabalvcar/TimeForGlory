@@ -16,7 +16,7 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
     protected Animator animator;
     protected AIPath aiPath;
     protected Rigidbody2D rigidBody;
-    private bool currentlyMoving = false;
+    private bool currentlyMoving;
 
     private void Awake()
     {
@@ -30,16 +30,6 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
         aiDestinationSetter = gameObject.GetComponent<AIDestinationSetter>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         aiPath = GetComponent<AIPath>();
-    }
-
-    void Start()
-    {
-        
-    }
-
-    protected virtual void Update()
-    {
-
     }
 
     protected virtual void FixedUpdate()
@@ -65,7 +55,9 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
             aiDestinationSetter.target = null;
             animator.SetFloat("isMoving", 0);
             if (!currentlyMoving)
+            {
                 StartCoroutine(WalkRandomDirection());
+            }
         }
 
     }
@@ -84,7 +76,7 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
 
         bool isWalkable = true;
 
-        for (int i = 0; i <= distance+1; i++) //que compruebe que sea <= de distance+1 en vez de < distance es a proposito para que no se atasquen
+        for (int i = 0; i <= distance + 1; i++)
         {
             currentPosition = currentPosition + direction;
 
@@ -110,10 +102,6 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
 
     private IEnumerator WalkRandomDirection()
     {
-
-        // Al poner aiDestinationTarget a null, es como si tuviera de target la posicion actual del transform
-        // por lo que cuando se mueve acaba volviendo a su posición original
-
         currentlyMoving = true;
 
         Vector3 movementVector = GetDirectionvector();
@@ -137,7 +125,6 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // Draw the seek radius and default radius in the Unity editor for visualization
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
@@ -147,7 +134,7 @@ public abstract class AbstractEnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            StartCoroutine(BattleController.Instance.StartBattle(gameObject));
+            StartCoroutine(BattleManager.Instance.StartBattle(gameObject));
         }
     }
 }

@@ -50,7 +50,10 @@ public class TilemapGenerator : MonoBehaviour
         }
 
         if (tile != null)
+        {
             PaintTile(wallPosition, wallTilemap, tile);
+        }
+
     }
 
     public void PaintCornerWallTile(Vector2Int wallPosition, string binaryIdentifier)
@@ -91,7 +94,7 @@ public class TilemapGenerator : MonoBehaviour
         }
         else if (WallTypesByBits.wallLeftToUpCorner.Contains(identifierAsInt))
         {
-            tile = wallLeftTiles[Random.Range(0, wallLeftTiles.Count)]; ;
+            tile = wallLeftTiles[Random.Range(0, wallLeftTiles.Count)];
 
         }
         else if (WallTypesByBits.wallRightToUpCorner.Contains(identifierAsInt))

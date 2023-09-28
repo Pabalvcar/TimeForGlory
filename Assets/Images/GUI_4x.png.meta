@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: 3a9441350427f1447af627584ad5e813
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GUI_4x_143
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1109012112ff044bacae5c89fc914a
+      internalID: 2037472044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_144
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e479469da60bcaa48bb4688564dec0cc
+      internalID: -392158206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_145
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4854d68b62a0c1d468ef93884d62b1e6
+      internalID: -2040810968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_146
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de095c404106d474dafa74ede6abb176
+      internalID: 1742383018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_147
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9e19e3f5274704b9899069a1e9a71f
+      internalID: 1235906353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_148
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f3c9713adabd04a8a30f3343c9f689
+      internalID: -1198821218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_149
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f937274793e924a90641811a95538a
+      internalID: -522582021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_150
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90649054d8cd5c24d990befffebd4d6a
+      internalID: 1581130158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_158
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd428048093ff2e45903acb9e0a9b4b2
+      internalID: 735715536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_160
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf48e4112b0b584a9777763437d61bd
+      internalID: 1179782801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_161
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a746e129a263843b644e003df6e0de
+      internalID: -1811222006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_162
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0065619f18080174cb18a8a47564be95
+      internalID: 872125226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_163
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621e39815af4f8243a728ea11a5791dc
+      internalID: -748635811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_4x_164
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62bf69079b006cf4f91ae5f8fdef24a4
+      internalID: 12536635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GUI_4x_9: 358135736
+      GUI_4x_111: -405267555
+      GUI_4x_36: 979632315
+      GUI_4x_66: 619170033
+      GUI_4x_56: -1624793972
+      GUI_4x_148: -1198821218
+      GUI_4x_88: -668663797
+      GUI_4x_123: 1516544863
+      GUI_4x_26: 725834607
+      GUI_4x_202: 322055393
+      GUI_4x_104: 758424043
+      GUI_4x_40: 1099617612
+      GUI_4x_122: -257038621
+      GUI_4x_100: 1551619940
+      GUI_4x_154: 89211469
+      GUI_4x_65: -143409962
+      GUI_4x_24: -915279051
+      GUI_4x_105: 2138836082
+      GUI_4x_189: -1911649996
+      GUI_4x_115: 283596464
+      GUI_4x_175: 555778012
+      GUI_4x_82: -70821382
+      GUI_4x_103: -1348806717
+      GUI_4x_94: 2121019176
+      GUI_4x_106: 903132105
+      GUI_4x_32: 1702535325
+      GUI_4x_20: -2032179475
+      GUI_4x_41: 404831880
+      GUI_4x_21: -480204652
+      GUI_4x_145: -2040810968
+      GUI_4x_129: -1827190428
+      GUI_4x_162: 872125226
+      GUI_4x_180: -732764015
+      GUI_4x_196: -1751910086
+      GUI_4x_152: 873625471
+      GUI_4x_12: 1918578907
+      GUI_4x_39: -2001168177
+      GUI_4x_107: -1248727774
+      GUI_4x_169: 745726530
+      GUI_4x_98: 957466222
+      GUI_4x_116: -1116694669
+      GUI_4x_10: -2013423460
+      GUI_4x_124: -128694058
+      GUI_4x_8: 2000995408
+      GUI_4x_30: 217436718
+      GUI_4x_186: 1456248224
+      GUI_4x_78: 89670011
+      GUI_4x_134: 1422266015
+      GUI_4x_46: 237124473
+      GUI_4x_165: 999505241
+      GUI_4x_83: 113702513
+      GUI_4x_172: -1992972268
+      GUI_4x_143: 2037472044
+      GUI_4x_159: -1320327547
+      GUI_4x_188: -370648081
+      GUI_4x_195: 1864124306
+      GUI_4x_127: 70048950
+      GUI_4x_58: 950219101
+      GUI_4x_52: 1751148082
+      GUI_4x_179: -187277515
+      GUI_4x_187: 2136390240
+      GUI_4x_200: 2110977867
+      GUI_4x_149: -522582021
+      GUI_4x_0: -1679250265
+      GUI_4x_75: -1905951146
+      GUI_4x_194: -1648964260
+      GUI_4x_141: 2080878787
+      GUI_4x_112: 531710618
+      GUI_4x_90: 927274621
+      GUI_4x_89: -1879445379
+      GUI_4x_45: 1552194939
+      GUI_4x_61: -437085955
+      GUI_4x_120: -134954652
+      GUI_4x_128: 1256493776
+      GUI_4x_11: -1695498650
+      GUI_4x_125: 958695555
+      GUI_4x_63: -607488625
+      GUI_4x_198: -1967554033
+      GUI_4x_49: -1607196854
+      GUI_4x_6: 1888571009
+      GUI_4x_97: -490356265
+      GUI_4x_4: -254258018
+      GUI_4x_184: 811308275
+      GUI_4x_176: 936176462
+      GUI_4x_92: -143187449
+      GUI_4x_157: 372226430
+      GUI_4x_142: -1148399008
+      GUI_4x_85: 1658398914
+      GUI_4x_182: 89141907
+      GUI_4x_80: -1200579243
+      GUI_4x_191: 355891386
+      GUI_4x_7: 91271208
+      GUI_4x_76: 1936901956
+      GUI_4x_28: -12785062
+      GUI_4x_139: -1675520870
+      GUI_4x_121: 270579387
+      GUI_4x_19: -1880886495
+      GUI_4x_25: -41102535
+      GUI_4x_171: -907107095
+      GUI_4x_183: 2030696719
+      GUI_4x_38: -1032383192
+      GUI_4x_1: 1607511763
+      GUI_4x_136: -574778954
+      GUI_4x_199: -1538625416
+      GUI_4x_72: -334785545
+      GUI_4x_108: -1899334881
+      GUI_4x_37: 1114250934
+      GUI_4x_73: 728511016
+      GUI_4x_91: 1393565818
+      GUI_4x_71: 591193826
+      GUI_4x_13: -812667743
+      GUI_4x_133: -1510305116
+      GUI_4x_113: 1778658163
+      GUI_4x_166: -1594687067
+      GUI_4x_197: 334828022
+      GUI_4x_119: 1555659683
+      GUI_4x_16: 734246864
+      GUI_4x_164: 12536635
+      GUI_4x_68: 2076229295
+      GUI_4x_173: -1365490410
+      GUI_4x_70: -1021203835
+      GUI_4x_54: 951638094
+      GUI_4x_14: 878162375
+      GUI_4x_51: -2146288355
+      GUI_4x_87: -467690444
+      GUI_4x_102: 868416071
+      GUI_4x_114: 366155641
+      GUI_4x_64: 546445992
+      GUI_4x_18: -1900091920
+      GUI_4x_163: -748635811
+      GUI_4x_34: -1497997497
+      GUI_4x_167: 537337563
+      GUI_4x_53: -1706100272
+      GUI_4x_144: -392158206
+      GUI_4x_17: 1276673776
+      GUI_4x_185: -1908429718
+      GUI_4x_109: -1129329225
+      GUI_4x_118: -476771063
+      GUI_4x_44: -661046055
+      GUI_4x_31: 918316724
+      GUI_4x_193: -861507742
+      GUI_4x_74: -1602807102
+      GUI_4x_55: 608656327
+      GUI_4x_79: -1340833322
+      GUI_4x_155: 283859803
+      GUI_4x_77: -1949627133
+      GUI_4x_5: -1663182055
+      GUI_4x_2: -1755095813
+      GUI_4x_132: 473097159
+      GUI_4x_137: -1365063928
+      GUI_4x_43: -1529120897
+      GUI_4x_178: -121805397
+      GUI_4x_138: 673796526
+      GUI_4x_110: -117275980
+      GUI_4x_27: 1188042944
+      GUI_4x_190: 223281455
+      GUI_4x_84: -1294583983
+      GUI_4x_95: -602950676
+      GUI_4x_181: 1455899227
+      GUI_4x_62: 386953300
+      GUI_4x_192: 461007979
+      GUI_4x_81: -245071231
+      GUI_4x_168: 675837986
+      GUI_4x_147: 1235906353
+      GUI_4x_59: 735846460
+      GUI_4x_50: -1404475989
+      GUI_4x_60: -870943273
+      GUI_4x_22: -119062479
+      GUI_4x_126: 2056644762
+      GUI_4x_99: 224168908
+      GUI_4x_69: 1066407600
+      GUI_4x_174: -736097119
+      GUI_4x_140: 1013688763
+      GUI_4x_35: -1942598632
+      GUI_4x_48: -2121013561
+      GUI_4x_3: -1241532063
+      GUI_4x_131: -1395741396
+      GUI_4x_146: 1742383018
+      GUI_4x_170: -1378548534
+      GUI_4x_177: -169132297
+      GUI_4x_57: 1026135670
+      GUI_4x_67: 290448087
+      GUI_4x_23: -598731135
+      GUI_4x_47: -203190387
+      GUI_4x_101: 999961934
+      GUI_4x_150: 1581130158
+      GUI_4x_201: 1331713216
+      GUI_4x_86: -1546984803
+      GUI_4x_29: 506834107
+      GUI_4x_135: 139731952
+      GUI_4x_130: -336604029
+      GUI_4x_160: 1179782801
+      GUI_4x_156: 1122728600
+      GUI_4x_96: 1570492112
+      GUI_4x_42: -1807323578
+      GUI_4x_93: -1450250657
+      GUI_4x_33: -1962460584
+      GUI_4x_151: 1280998189
+      GUI_4x_117: 420593087
+      GUI_4x_153: 1163155960
+      GUI_4x_161: -1811222006
+      GUI_4x_158: 735715536
+      GUI_4x_15: -595283924
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

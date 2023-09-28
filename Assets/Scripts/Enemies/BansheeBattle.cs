@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BansheeBattle : AbstractEnemyBattle
 {
-    public int removedMP;
-    public int bonusDamage;
-    public float bonusDamageHPThreshold;
-    public int baseStrenght;
+    [SerializeField]
+    private int removedMP;
+    [SerializeField]
+    private float bonusDamage;
+    [SerializeField]
+    private float bonusDamageHPThreshold;
+    private int baseStrenght;
 
 
     public override void Start()
@@ -19,6 +22,8 @@ public class BansheeBattle : AbstractEnemyBattle
     public override string TakeDamage(int damage)
     {
         int damageTaken = Mathf.RoundToInt(damage - (0.5f * defense));
+        if (damageTaken < 0)
+            damageTaken = 1;
         currentHP = currentHP - damageTaken;
         DamageUpdate();
         return "Atacas a la Banshee\n¡La Banshee recibe " + damageTaken + " puntos de daño!";
@@ -26,22 +31,22 @@ public class BansheeBattle : AbstractEnemyBattle
 
     public override string SpecialAttack(int damage)
     {
-        int damageTaken = BattleController.Instance.playerStats.TakeDamage(damage);
-        BattleController.Instance.playerStats.currentMP -= removedMP;
+        int damageTaken = BattleManager.Instance.playerStats.TakeDamage(damage);
+        BattleManager.Instance.playerStats.currentMP -= removedMP;
         return "Susurro: recibes " + damageTaken + " puntos de daño y \n tus MP se reducen en "
             + removedMP + " puntos";
     }
 
     void DamageUpdate()
     {
-        float playerHp = (float) BattleController.Instance.playerStats.currentHP / BattleController.Instance.playerStats.maxHP;
+        float playerHp = (float) BattleManager.Instance.playerStats.currentHP / BattleManager.Instance.playerStats.maxHP;
 
         Debug.Log(playerHp);
         Debug.Log(bonusDamageHPThreshold);
 
         if (playerHp <= bonusDamageHPThreshold)
         {
-            strenght = Mathf.RoundToInt(baseStrenght*1.5f);
+            strenght = Mathf.RoundToInt(baseStrenght * bonusDamage);
         } else
         {
             strenght = baseStrenght;

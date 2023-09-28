@@ -124,9 +124,12 @@ MonoBehaviour:
   defense: 0
   strenght: 0
   level: 0
-  removedMP: 2
-  bonusDamage: 30
+  goldDrop: 0
+  isPoisoned: 0
+  removedMP: 5
+  bonusDamage: 1.5
   bonusDamageHPThreshold: 0.3
+  baseStrenght: 0
 --- !u!95 &1959985181730403789
 Animator:
   serializedVersion: 5

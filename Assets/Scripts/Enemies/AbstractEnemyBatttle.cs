@@ -35,7 +35,7 @@ public abstract class AbstractEnemyBattle : MonoBehaviour
 
     public void UpdateStats(int addedLevels)
     {
-        level = DifficultyController.Instance.enemyLevel + addedLevels;
+        level = GameManager.Instance.enemyLevel + addedLevels;
         maxHP = baseStats.maxHP + 2*level;
         currentHP = maxHP;
         defense = baseStats.defense + level;
@@ -56,7 +56,7 @@ public abstract class AbstractEnemyBattle : MonoBehaviour
 
     public virtual string TakePoisonDamage()
     {
-        int damageTaken = 5 + (5*BattleController.Instance.playerStats.poisonLevel);
+        int damageTaken = 5 + (5*BattleManager.Instance.playerStats.poisonLevel);
         currentHP = currentHP - damageTaken;
         return "¡El veneno inflinge " + damageTaken + " puntos de daño al enemigo!";
     }
@@ -65,35 +65,37 @@ public abstract class AbstractEnemyBattle : MonoBehaviour
     {
         int damageTaken = Mathf.RoundToInt(damage - (0.01f * defense));
 
-        if (BattleController.Instance.playerStats.magicEffect == MagicEffect.LIFESTEAL)
+        if (BattleManager.Instance.playerStats.magicEffect == MagicEffect.LIFESTEAL)
         {
             currentHP = currentHP - damageTaken;
-            float recoveryPercentage = 0.45f + (0.05f * BattleController.Instance.playerStats.lifestealLevel);
+            float recoveryPercentage = 0.45f + (0.05f * BattleManager.Instance.playerStats.lifestealLevel);
             int recoveredHP = Mathf.RoundToInt(damageTaken*recoveryPercentage);
-            BattleController.Instance.playerStats.RecoverHP(recoveredHP);
+            BattleManager.Instance.playerStats.RecoverHP(recoveredHP);
             return "¡El ataque mágico inflinge " + damageTaken + " puntos de daño al enemigo y recuperas " + recoveredHP + " puntos de vida!";
         }
 
-        if (BattleController.Instance.playerStats.magicEffect == MagicEffect.WEAKEN)
+        if (BattleManager.Instance.playerStats.magicEffect == MagicEffect.WEAKEN)
         {
             currentHP = currentHP - damageTaken;
-            float defenseReductionPercent = 0.80f - (0.05f * BattleController.Instance.playerStats.weakenLevel);
+            float defenseReductionPercent = 0.80f - (0.05f * BattleManager.Instance.playerStats.weakenLevel);
             defense = Mathf.RoundToInt(defense * defenseReductionPercent);
+            if (defense < 0)
+                defense = 0;
             return "¡El ataque mágico inflinge " + damageTaken + " puntos de daño al enemigo y su defensa baja en un " + (1 - defenseReductionPercent)*100 + "%!";
         }
 
-        if (BattleController.Instance.playerStats.magicEffect == MagicEffect.POISON)
+        if (BattleManager.Instance.playerStats.magicEffect == MagicEffect.POISON)
         {
             currentHP = currentHP - damageTaken;
             isPoisoned = true;
             return "¡El ataque mágico inflinge " + damageTaken + " puntos de daño al enemigo, y ahora está envenenado!";
         }
 
-        if (BattleController.Instance.playerStats.magicEffect == MagicEffect.EXPLOSION)
+        if (BattleManager.Instance.playerStats.magicEffect == MagicEffect.EXPLOSION)
         {
-            damageTaken = damageTaken * (BattleController.Instance.playerStats.explosionLevel + 1);
-            int damageTakenPlayer = Mathf.RoundToInt(BattleController.Instance.playerStats.maxHP / 4);
-            BattleController.Instance.playerStats.TakeDamageIgnoringDefense(damageTaken);
+            damageTaken = damageTaken * (BattleManager.Instance.playerStats.explosionLevel + 1);
+            int damageTakenPlayer = Mathf.RoundToInt(BattleManager.Instance.playerStats.maxHP / 5);
+            BattleManager.Instance.playerStats.TakeDamageIgnoringDefense(damageTaken);
             currentHP = currentHP - damageTaken;
             return "¡El ataque mágico inflinge " + damageTaken + " puntos de daño al enemigo! Pero te haces " + damageTakenPlayer + " puntos de daño a tí mismo";
         }

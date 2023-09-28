@@ -45,7 +45,7 @@ public static class Direction2D
 {
 
     // El orden es importante para la comprobación de las paredes
-    public static List<Vector2Int> cardinalDirectionsList = new List<Vector2Int>
+    public static readonly List<Vector2Int> cardinalDirectionsList = new List<Vector2Int>
     {
         new Vector2Int(0,1),  // arriba
         new Vector2Int(1,0),  // derecha
@@ -53,7 +53,7 @@ public static class Direction2D
         new Vector2Int(-1,0)  // izquierda
     };
 
-    public static List<Vector2Int> diagonalDirectionsList = new List<Vector2Int>
+    public static readonly List<Vector2Int> diagonalDirectionsList = new List<Vector2Int>
     {
         new Vector2Int(1,1),  // arriba derecha
         new Vector2Int(1,-1), // abajo derecha
@@ -61,7 +61,7 @@ public static class Direction2D
         new Vector2Int(-1,1) // arriba izquierda
     };
 
-    public static List<Vector2Int> allDirectionsList = new List<Vector2Int>
+    public static readonly List<Vector2Int> allDirectionsList = new List<Vector2Int>
     {
         new Vector2Int(0,1),  // arriba
         new Vector2Int(1,1),  // arriba derecha

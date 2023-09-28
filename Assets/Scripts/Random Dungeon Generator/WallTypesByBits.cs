@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class WallTypesByBits
 {
-    public static HashSet<int> wallUp = new HashSet<int>
+    public static readonly HashSet<int> wallUp = new HashSet<int>
     {
         0b1111,
         0b0110,
@@ -17,22 +17,22 @@ public static class WallTypesByBits
         0b0111
     };
 
-    public static HashSet<int> wallLeft = new HashSet<int>
+    public static readonly HashSet<int> wallLeft = new HashSet<int>
     {
         0b0100
     };
 
-    public static HashSet<int> wallRight = new HashSet<int>
+    public static readonly HashSet<int> wallRight = new HashSet<int>
     {
         0b0001
     };
 
-    public static HashSet<int> wallDown = new HashSet<int>
+    public static readonly HashSet<int> wallDown = new HashSet<int>
     {
         0b1000
     };
 
-    public static HashSet<int> wallLeftToDownCorner = new HashSet<int>
+    public static readonly HashSet<int> wallLeftToDownCorner = new HashSet<int>
     {
         0b11110001,
         0b11100000,
@@ -54,7 +54,7 @@ public static class WallTypesByBits
         0b10010001
     };
 
-    public static HashSet<int> wallRightToDownCorner = new HashSet<int>
+    public static readonly HashSet<int> wallRightToDownCorner = new HashSet<int>
     {
         0b11000111,
         0b11000011,
@@ -77,29 +77,29 @@ public static class WallTypesByBits
 
     };
 
-    public static HashSet<int> wallDownToLeftCorner = new HashSet<int>
+    public static readonly HashSet<int> wallDownToLeftCorner = new HashSet<int>
     {
         0b01000000
     };
 
-    public static HashSet<int> wallDownToRightCorner = new HashSet<int>
+    public static readonly HashSet<int> wallDownToRightCorner = new HashSet<int>
     {
         0b00000001
     };
 
-    public static HashSet<int> wallLeftToUpCorner = new HashSet<int>
+    public static readonly HashSet<int> wallLeftToUpCorner = new HashSet<int>
     {
         0b00010000,
         0b01010000,
     };
 
-    public static HashSet<int> wallRightToUpCorner = new HashSet<int>
+    public static readonly HashSet<int> wallRightToUpCorner = new HashSet<int>
     {
         0b00000100,
         0b00000101
     };
 
-    public static HashSet<int> wallFull = new HashSet<int>
+    public static readonly HashSet<int> wallFull = new HashSet<int>
     {
         0b1101,
         0b0101,
@@ -108,7 +108,7 @@ public static class WallTypesByBits
 
     };
 
-    public static HashSet<int> wallFullEightDirections = new HashSet<int>
+    public static readonly HashSet<int> wallFullEightDirections = new HashSet<int>
     {
         0b00010100,
         0b11100100,
@@ -147,7 +147,7 @@ public static class WallTypesByBits
 
     };
 
-    public static HashSet<int> wallDownEightDirections = new HashSet<int>
+    public static readonly HashSet<int> wallDownEightDirections = new HashSet<int>
     {
         0b01000001
     };

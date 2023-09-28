@@ -5,11 +5,6 @@ using UnityEngine;
 public class BasicMovement : AbstractEnemyMovement
 {
 
-    void Start()
-    {
-
-    }
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

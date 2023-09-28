@@ -5,9 +5,7 @@ using TMPro;
 
 public class MimicMovement : AbstractEnemyMovement
 {
-
-    private bool isSpacePressed;
-    private bool isInsideRange = false;
+    private bool isInsideRange;
 
     [SerializeField]
     private GameObject chestUI;
@@ -28,15 +26,6 @@ public class MimicMovement : AbstractEnemyMovement
         StartCoroutine(PlayAnimationEvery10Seconds());
     }
 
-    protected override void Update()
-    {
-        isSpacePressed = Input.GetKeyDown(KeyCode.Space);
-        if (isSpacePressed && isInsideRange)
-        {
-            StartCoroutine(BattleStart());
-        }
-    }
-
     private IEnumerator BattleStart()
     {
         animator.SetFloat("doAnimation", 1);
@@ -45,12 +34,16 @@ public class MimicMovement : AbstractEnemyMovement
         yield return new WaitForSeconds(0.5f);
         chestUIInstance.SetActive(false);
         Time.timeScale = 1f;
-        StartCoroutine(BattleController.Instance.StartBattle(gameObject));
+        StartCoroutine(BattleManager.Instance.StartBattle(gameObject));
     }
 
     protected override void FixedUpdate()
     {
-
+        bool isSpacePressed = Input.GetKeyDown(KeyCode.Space);
+        if (isSpacePressed && isInsideRange)
+        {
+            StartCoroutine(BattleStart());
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)

@@ -112,7 +112,7 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private void SpawnChests(HashSet<Vector2Int> roomPositions)
     {
 
-        for (int i = 0; i < DifficultyController.Instance.chestNumber; i++)
+        for (int i = 0; i < GameManager.Instance.chestNumber; i++)
         {
             Vector2Int spawnPosition = GetSpawnPosition(roomPositions);
             Instantiate(chestPrefab, new Vector3Int(spawnPosition.x, spawnPosition.y, 0), Quaternion.identity);
@@ -122,8 +122,8 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private void SpawnEnemies(HashSet<Vector2Int> roomPositions, int roomAmount)
     {   
-        int enemyAmount = DifficultyController.Instance.enemyAmountPerRoom * roomAmount;
-        int extraEnemies = DifficultyController.Instance.extraEnemies;
+        int enemyAmount = GameManager.Instance.enemyAmountPerRoom * roomAmount;
+        int extraEnemies = GameManager.Instance.extraEnemies;
 
         List<GameObject> enemyPrefabs = new List<GameObject>()
         {
@@ -136,11 +136,11 @@ public class CorridorBasedDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         List<float> enemyProbabilities = new List<float>()
         {
-            DifficultyController.Instance.mimicSpawnWeight,
-            DifficultyController.Instance.demonSpawnWeight,
-            DifficultyController.Instance.bansheeSpawnWeight,
-            DifficultyController.Instance.skeletonSpawnWeight,
-            DifficultyController.Instance.slimeSpawnWeight,
+            GameManager.Instance.mimicSpawnWeight,
+            GameManager.Instance.demonSpawnWeight,
+            GameManager.Instance.bansheeSpawnWeight,
+            GameManager.Instance.skeletonSpawnWeight,
+            GameManager.Instance.slimeSpawnWeight,
         };
 
         GameObject enemy = slimePrefab; //slime es el enemigo default, esto solo debería saltar para el valor aleatorio 1

@@ -20,6 +20,12 @@ public class Chest : MonoBehaviour
     public GameObject chestUIInstance;
     private TMP_Text chestText;
 
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip chestOpen;
+    [SerializeField]
+    private AudioClip chestBlocked;
+
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -28,6 +34,7 @@ public class Chest : MonoBehaviour
         chestUIInstance = Instantiate(chestUI);
         chestText = chestUIInstance.GetComponentInChildren<TMP_Text>();
         chestUIInstance.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -42,7 +49,7 @@ public class Chest : MonoBehaviour
             }
             else
             {
-                if (DifficultyController.Instance.chestGoldCost <= playerStats.gold)
+                if (GameManager.Instance.chestGoldCost <= playerStats.gold)
                 {
                     StartCoroutine(ChestOpenedDisplay());
                 }
@@ -61,13 +68,17 @@ public class Chest : MonoBehaviour
 
         chestUIInstance.SetActive(true);
 
-        playerStats.LoseGold(DifficultyController.Instance.chestGoldCost);
+        playerStats.LoseGold(GameManager.Instance.chestGoldCost);
 
         Time.timeScale = 0f;
 
         chestText.SetText("Abres el cofre");
         string rune = UpgradeRandomStat();
+        playerStats.updateUI();
         yield return new WaitForSecondsRealtime(2f);
+
+        audioSource.clip = chestOpen;
+        audioSource.Play();
 
         chestText.SetText("¡Enhorabuena, has encontrado una runa " + rune);
         yield return new WaitForSecondsRealtime(2f);
@@ -84,7 +95,9 @@ public class Chest : MonoBehaviour
     private IEnumerator NotEnoughGoldDisplay()
     {
         chestUIInstance.SetActive(true);
-        chestText.SetText("No tienes suficiente oro" + "\nCoste: " + DifficultyController.Instance.chestGoldCost);
+        chestText.SetText("No tienes suficiente oro" + "\nCoste: " + GameManager.Instance.chestGoldCost);
+        audioSource.clip = chestBlocked;
+        audioSource.Play();
         yield return new WaitForSeconds(2f);
         chestUIInstance.SetActive(false);
     }
@@ -93,6 +106,8 @@ public class Chest : MonoBehaviour
     {
         chestUIInstance.SetActive(true);
         chestText.SetText("Ya abriste este cofre");
+        audioSource.clip = chestBlocked;
+        audioSource.Play();
         yield return new WaitForSeconds(2f);
         chestUIInstance.SetActive(false);
     }

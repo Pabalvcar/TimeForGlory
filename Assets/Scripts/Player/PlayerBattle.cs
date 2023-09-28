@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public enum MagicEffect { BASE, LIFESTEAL, WEAKEN, POISON, EXPLOSION }
@@ -24,8 +25,16 @@ public class PlayerBattle : MonoBehaviour
     public int poisonLevel = 0;
     public int explosionLevel = 0;
 
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();  
+    }
+
     public int TakeDamage(int strenght)
     {
+        audioSource.Play();
         int damageTaken = Mathf.RoundToInt(strenght - (0.5f * defense));
         currentHP = currentHP - damageTaken;
         return damageTaken;
@@ -69,6 +78,16 @@ public class PlayerBattle : MonoBehaviour
         currentMP = currentMP - amount;
         if (currentMP < 0)
             currentMP = 0;
+    }
+
+    public void updateUI()
+    {
+        GameManager.Instance.hpText.SetText(currentHP + "/" + maxHP);
+        GameManager.Instance.mpText.SetText(currentMP + "/" + maxMP);
+        GameManager.Instance.strenghtText.SetText(strenght.ToString());
+        GameManager.Instance.intelligenceText.SetText(intelligence.ToString());
+        GameManager.Instance.defenseText.SetText(defense.ToString());
+        GameManager.Instance.goldText.SetText(gold.ToString());
     }
 
 }

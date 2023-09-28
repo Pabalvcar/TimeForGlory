@@ -123,8 +123,10 @@ MonoBehaviour:
   defense: 0
   strenght: 0
   level: 0
-  goldStolen: 5
-  extraDamageForEachRune: 0.2
+  goldDrop: 0
+  isPoisoned: 0
+  goldStolen: 2
+  extraDamageForEachRune: 2
 --- !u!95 &8491110292266643601
 Animator:
   serializedVersion: 5
