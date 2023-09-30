@@ -95,7 +95,7 @@ public abstract class AbstractEnemyBattle : MonoBehaviour
         {
             damageTaken = damageTaken * (BattleManager.Instance.playerStats.explosionLevel + 1);
             int damageTakenPlayer = Mathf.RoundToInt(BattleManager.Instance.playerStats.maxHP / 5);
-            BattleManager.Instance.playerStats.TakeDamageIgnoringDefense(damageTaken);
+            BattleManager.Instance.playerStats.TakeDamageIgnoringDefense(damageTakenPlayer);
             currentHP = currentHP - damageTaken;
             return "¡El ataque mágico inflinge " + damageTaken + " puntos de daño al enemigo! Pero te haces " + damageTakenPlayer + " puntos de daño a tí mismo";
         }
